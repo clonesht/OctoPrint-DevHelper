@@ -15,7 +15,7 @@ During plugin development, I found it slow and frustrating to restarting OctoPri
 Install via the bundled [Plugin Manager](https://plugins.octoprint.org/)
 or manually using this URL:
 
-    https://github.com/jneilliii/OctoPrint-WebcamIframe/archive/master.zip
+    https://github.com/clonesht/OctoPrint-DevHelper/archive/main.zip
 
 
 ## Usage
