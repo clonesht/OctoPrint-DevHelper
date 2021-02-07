@@ -18,7 +18,7 @@ plugin_version = "1.0.0"
 
 # The plugin's description. Can be overwritten within OctoPrint's internal data via __plugin_description__ in the plugin
 # module
-plugin_description = """Live reload of jinja templates and python source code without restarting OctoPrint.."""
+plugin_description = """Live and instant reload of Jinja templates and Python source code without restarting OctoPrint."""
 
 # The plugin's author. Can be overwritten within OctoPrint's internal data via __plugin_author__ in the plugin module
 plugin_author = "clonesht"
