@@ -58,7 +58,7 @@ class DevHelperPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.AssetPlu
 
     def get_update_information(self):
         return dict(
-            devhelper=dict(
+            dev_helper=dict(
                 displayName="Dev Helper",
                 displayVersion=self._plugin_version,
 
@@ -135,8 +135,6 @@ class DevHelperPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.AssetPlu
 
 
 __plugin_name__ = "Dev Helper"
-__plugin_version__ = "1.0.0"
-__plugin_description__ = "Live reload of jinja templates and python source code without restarting OctoPrint."
 __plugin_pythoncompat__ = ">=3,<4"
 
 

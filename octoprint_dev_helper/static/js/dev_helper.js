@@ -13,14 +13,14 @@ $(function() {
         self.output = ko.observable("Ready.");
 
         self.onStartupComplete = function() {
-            $("#sidebar_plugin_DevHelper_wrapper > div.accordion-heading > a").prepend("<i class='fab fa-dev'/>");
-            self.sidebar = $("#sidebar_plugin_DevHelper_wrapper #dev_helper");
+            $("#sidebar_plugin_dev_helper_wrapper > div.accordion-heading > a").prepend("<i class='fab fa-dev'/>");
+            self.sidebar = $("#sidebar_plugin_dev_helper_wrapper #dev_helper");
 
         };
 
         self.onBeforeBinding = function() {
             window.dev_helper = self;
-            var settings = self.settingsViewModel.settings.plugins.DevHelper;
+            var settings = self.settingsViewModel.settings.plugins.dev_helper;
 
             self.inputModule(settings.last_module());
             self.inputClass(settings.last_class());
@@ -28,7 +28,7 @@ $(function() {
         }
 
         self.saveSettings = function() {
-            OctoPrint.settings.savePluginSettings('DevHelper', {
+            OctoPrint.settings.savePluginSettings('dev_helper', {
                 "last_module": self.inputModule(),
                 "last_class": self.inputClass(),
                 "last_cache_filter": self.inputCacheFilter()
@@ -43,7 +43,7 @@ $(function() {
         self.sendCmd = function(cmd, params) {
             self.isDisabled(true);
             self.output("> " + cmd + " " + JSON.stringify(params))
-            OctoPrint.simpleApiCommand("DevHelper", cmd, params)
+            OctoPrint.simpleApiCommand("dev_helper", cmd, params)
                 .done(function (res) {
                     if (res && res.error)
                         self.handleError(res.error);
@@ -74,6 +74,6 @@ $(function() {
     OCTOPRINT_VIEWMODELS.push({
         construct: DevHelperViewModel,
         dependencies: ["settingsViewModel", "controlViewModel"],
-        elements: ["#sidebar_plugin_DevHelper"]
+        elements: ["#sidebar_plugin_dev_helper"]
     });
 });

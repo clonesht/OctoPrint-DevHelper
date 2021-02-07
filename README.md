@@ -45,6 +45,6 @@ or manually using this URL:
 ### Remote eval console (disabled by default)
 
  - Remove the blocking exception from the eval API command
- - Reload the plugin using Module: `octoprint_dev_helper`, Class name: `DevHelperPlugin` or restart OctoPrint
+ - Reload the plugin using Module: `dev_helper`, Class name: `DevHelperPlugin` or restart OctoPrint
  - Run command from JS console using `res = await OctoPrint.simpleApiCommand("DevHelper", "eval", {"cmd": "dir(self)"})`
 
