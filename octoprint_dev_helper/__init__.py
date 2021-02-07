@@ -102,7 +102,7 @@ class DevHelperPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.AssetPlu
     # -- API Commands --
 
     def action_eval(self, cmd):
-        # raise Exception("Disabled by default")  # Only enable this function if you know what are you doing
+        raise Exception("Disabled by default")  # Only enable this function if you know what are you doing
 
         s = time.time()
         res = eval(cmd)
