@@ -25,7 +25,7 @@ or manually using this URL:
 
  - Modify the template files
  - Enter a part of the local fs path of the template file you want to reload to the `Part of template file path` field.
-   (eg. `dev_helper` if you want to reload ~/.octoprint/plugins/DevHelper/templates/dev_helper_sidebar.jinja2 file.)
+   (eg. `dev_helper_sidebar` if you want to reload ~/.octoprint/plugins/dev_helper/templates/dev_helper_sidebar.jinja2 file.)
  - Hit the `Clear cache` button.
  - It should display `Done: Cleared template cache: 1` at the bottom of the sidebar widget.
  - When reloading the page you should see the effect of the modifications immediately.
@@ -34,7 +34,7 @@ or manually using this URL:
 ### Reload python source code
 
  - Modify .py files
- - Enter the module (package) name of the plugin you want to reload. (eg. DevHelper)
+ - Enter the module (package) name of the plugin you want to reload. (eg. dev_helper)
  - Enter the class name from the module you want to update in the memory. (eg. DevHelperPlugin)
  - Hit the `Reload class` button.
  - It should display `Done: Reloaded object: 1` at the bottom of the sidebar widget.
@@ -44,7 +44,6 @@ or manually using this URL:
 
 ### Remote eval console (disabled by default)
 
- - Remove the blocking exception from the eval API command
- - Reload the plugin using Module: `dev_helper`, Class name: `DevHelperPlugin` or restart OctoPrint
- - Run command from JS console using `res = await OctoPrint.simpleApiCommand("DevHelper", "eval", {"cmd": "dir(self)"})`
+ - Create a `~/.octoprint/data/dev_helper/enable_eval` file to enable this feature
+ - Run command from JS console using `res = await OctoPrint.simpleApiCommand("dev_helper", "eval", {"cmd": "dir(self)"})`
 

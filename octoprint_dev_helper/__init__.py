@@ -102,15 +102,26 @@ class DevHelperPlugin(octoprint.plugin.SettingsPlugin, octoprint.plugin.AssetPlu
     # -- API Commands --
 
     def action_eval(self, cmd):
-        raise Exception("Disabled by default")  # Only enable this function if you know what are you doing
+        if not os.path.isfile(self._data_folder + "/enable_eval"):  # Create a `~/.octoprint/data/dev_helper/enable_eval` file to enable this feature
+            return {"error": "Disabled by default"}
+
+        def stripped_repr(obj):
+            return repr(obj).strip("'")
+
+        def dump(obj):
+            return {key: getattr(self, key) for key in dir(obj)}
 
         s = time.time()
         res = eval(cmd)
         print(" > Eval: %s, res: %s (Done in %.3fs)" % (cmd, res, time.time() - s))
         try:
-            return flask.jsonify(res)
+            if type(res) == list:
+                back = [stripped_repr(item) for item in res]
+            elif type(res) == dict:
+                back = {stripped_repr(key): stripped_repr(val) for key, val in res.items()}
+            return flask.jsonify(back)
         except Exception:
-            return flask.jsonify(str(res))
+            return flask.jsonify(stripped_repr(res))
 
     def action_clear_template_cache(self, filter):
         cache = octoprint.server.app.jinja_env.cache
