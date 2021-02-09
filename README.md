@@ -25,7 +25,7 @@ or manually using this URL:
 
  - Modify the template files
  - Enter a part of the local fs path of the template file you want to reload to the `Part of template file path` field.
-   (eg. `dev_helper_sidebar` if you want to reload ~/.octoprint/plugins/dev_helper/templates/dev_helper_sidebar.jinja2 file.)
+   (eg. `dev_helper_sidebar` if you want to reload the `~/.octoprint/plugins/dev_helper/templates/dev_helper_sidebar.jinja2` file.)
  - Hit the `Clear cache` button.
  - It should display `Done: Cleared template cache: 1` at the bottom of the sidebar widget.
  - When reloading the page you should see the effect of the modifications immediately.
